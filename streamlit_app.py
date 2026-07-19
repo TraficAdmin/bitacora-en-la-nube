@@ -102,8 +102,12 @@ def actualizar_status_en_sheets(numero_viaje):
     Busca el número de viaje (SHIPMENT) en la pestaña 'PLAN'
     y cambia su STATUS a 'FACTURADO' leyendo las credenciales directamente.
     """
+    import os
     import streamlit as st
-   import json
+    try:
+        import gspread
+        from google.oauth2.service_account import Credentials
+        import json
         
         # Leemos las credenciales guardadas de forma segura en Streamlit Cloud
         info_credenciales = json.loads(st.secrets["llave_google"])
@@ -115,7 +119,6 @@ def actualizar_status_en_sheets(numero_viaje):
         
         # Conectamos usando el diccionario directamente en lugar de un archivo físico
         creds = Credentials.from_service_account_info(info_credenciales, scopes=SCOPES)
-        gc = gspread.authorize(creds)
         cliente_sheets = gspread.authorize(creds)
         
         # ID de tu Google Sheet
