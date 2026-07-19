@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import pythoncom
+
 import time
 import subprocess
 import os
@@ -1306,7 +1306,7 @@ def render_logistica_master():
             # Conversor de Excel a PDF
             def convertir_excel_a_pdf(ruta_excel, ruta_pdf):
                 
-                import pythoncom
+               
                 excel_app = None
                 try:
                     pythoncom.CoInitialize()
