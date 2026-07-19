@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import win32com.client
 import pythoncom
 import time
 import subprocess
@@ -13,7 +12,6 @@ import openpyxl
 from openpyxl.drawing.image import Image as OpenpyxlImage
 import barcode
 from barcode.writer import ImageWriter
-import win32com.client
 import os
 
 # ==============================================================================
@@ -1307,7 +1305,7 @@ def render_logistica_master():
 
             # Conversor de Excel a PDF
             def convertir_excel_a_pdf(ruta_excel, ruta_pdf):
-                import win32com.client
+                
                 import pythoncom
                 excel_app = None
                 try:
